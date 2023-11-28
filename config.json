@@ -1,0 +1,55 @@
+{
+  "name": "IP Encrypt",
+
+  "namespace":"JHU\\IPEncrypt",
+
+  "description": "Add the action tag @IP-ENCRYPT to a Text field to capture an encrypted version of the IP address. Most often, this action tag is used in conjunction with the @HIDDEN-SURVEY and @READONLY action tags. If necessary (and with appropriate approvals), a REDCap Administrator can decrypt an encrypted IP Address. NOTE: @IP-ENCRYPT will return an empty string until an Encryption Key is provided in the Control Center EM configuration (requires a REDCap administrator).",
+  "documentation": "ReadMe.pdf",
+  "authors": [
+    {
+      "name": "Michael Sherman Jr",
+      "email": "mike.sherman@jhmi.edu",
+      "institution": "Johns Hopkins University"
+    },
+    {
+      "name": "Scott Carey",
+      "email": "scarey@jhmi.edu",
+      "institution": "Johns Hopkins University"
+    }
+  ],
+  "permissions": [
+    "redcap_survey_page",
+    "redcap_every_page_before_render"
+  ],
+  "links":
+  {
+
+    "control-center":
+    [
+      {
+        "name": "IP-DECRYPT",
+        "icon": "fas fa-key",
+        "url": "decryption-page.php",
+        "target": "_blank"
+      }
+    ]
+  },
+  "action-tags": [
+    {
+      "tag": "@IP-ENCRYPT",
+      "description": "Captures the IP address of the survey respondent as an encrypted string. Because multiple survey submissions from the same IP address will result in the same encrypted string, @IP-ENCRYPT can be an important tool in identifying potential duplicate submissions and possible fraud. This action tag is typically used with @HIDDEN-SURVEY and @READONLY. If necessary (and with appropriate approvals) the encrypted string can be decrypted by a REDCap administrator. <b>IMPORTANT:</b> Not all submissions from the same IP address represent fraud. @IP-ENCRYPT is intended to be just one piece of the puzzle. <b>NOTE:</b> @IP-ENCRYPT will return an empty string until an Encryption Key is provided in the Control Center EM configuration (requires a REDCap administrator)."
+    }
+  ],
+  "system-settings":
+  [
+    {
+      "key": "encrypt-key",
+      "name": "<b>Encryption Key:</b></br>Notes:</br><ul><li>@IP-ENCRYPT will return an empty string until an Encryption Key is provided in the Control Center EM configuration (requires a REDCap administrator).</li><li>Once initialized, it is recommended that this key NOT be changed, as it will not be possible to \"decrypt\" an IP address that was encrypted under a previous encryption key.If a change is required, be sure to keep a log of prior keys.<li>When enabled, this module adds an “IP-DECRYPT” link to the Control Center menu, allowing a REDCap Administrator to decrypt an IP address for a project, should that be necessary. This may require approval by IRB or other governance entities within the organization.</li><li>Encryption Key should be at least 12-characters long and include uppercase, lowercase, and numeric characters.</li></ul>",
+      "required": true,
+      "type": "text",
+      "repeatable": false
+    }
+  ],
+
+  "framework-version": 6
+}
