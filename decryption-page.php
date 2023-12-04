@@ -1,5 +1,5 @@
 <?php
-// Set the initial directory to the current file's directory.
+/*// Set the initial directory to the current file's directory.
 $dir = dirname(__FILE__);
 // Traverse up the directory tree to find the 'redcap_connect.php' file.
 while (!file_exists($dir . '/redcap_connect.php') && strlen($dir) > 3) {
@@ -10,7 +10,7 @@ if (file_exists($dir . '/redcap_connect.php')) {
     require_once $dir . '/redcap_connect.php';
 } else {
     exit;
-}
+}*/
 // Get the URL for the 'decryptajax.php' file.
 $ajaxurl = $module->getUrl('decryptajax.php');
 ?>

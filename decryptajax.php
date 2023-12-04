@@ -1,6 +1,8 @@
 <?php
 // Retrieve the encrypted text from the POST data.
-$encryption = $_POST['decrypttxt'];
+//$encryption = $_POST['decrypttxt'];
+$encryption = $module->escape($_POST['decrypttxt']);
+
 // Specify the ciphering method to be used for decryption.
 $ciphering = "AES-256-CTR";
 // Determine the IV length for the specified ciphering method.
