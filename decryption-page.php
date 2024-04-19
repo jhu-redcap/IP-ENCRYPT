@@ -62,7 +62,8 @@ $ajaxurl = $module->getUrl('decryptajax.php');
             type: "POST",
             url: "<?php echo $ajaxurl; ?>",
 
-            data: "decrypttxt=" + iptext,
+            data: `decrypttxt=${iptext}&redcap_csrf_token=<?=$module->getCSRFToken()?>`,
+            contentType: 'application/x-www-form-urlencoded',
             success: function(data){
                 // Insert the decrypted data into the table.
                 var table = document.getElementById("ip_decrypt_table");
