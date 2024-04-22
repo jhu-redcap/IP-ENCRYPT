@@ -17,10 +17,7 @@
       "institution": "Johns Hopkins University"
     }
   ],
-  "permissions": [
-    "redcap_survey_page",
-    "redcap_every_page_before_render"
-  ],
+
   "links":
   {
 
