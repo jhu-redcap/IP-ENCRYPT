@@ -4,7 +4,7 @@
   "namespace":"JHU\\IPEncrypt",
 
   "description": "Add the action tag @IP-ENCRYPT to a Text field to capture an encrypted version of the IP address. Most often, this action tag is used in conjunction with the @HIDDEN-SURVEY and @READONLY action tags. If necessary (and with appropriate approvals), a REDCap Administrator can decrypt an encrypted IP Address. NOTE: @IP-ENCRYPT will return an empty string until an Encryption Key is provided in the Control Center EM configuration (requires a REDCap administrator).",
-  "documentation": "ReadMe.pdf",
+  "documentation": "README.md",
   "authors": [
     {
       "name": "Michael Sherman Jr",
