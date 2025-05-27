@@ -57,12 +57,13 @@ $ajaxurl = $module->getUrl('decryptajax.php');
     function decrypt (iptext) {
         // Disable the decrypt button to prevent multiple submissions.
         document.getElementById("clickMe").disabled = true;
+        let encodedText = encodeURIComponent(iptext);
         // AJAX call to 'decryptajax.php', sending the encrypted text.
         $.ajax({
             type: "POST",
             url: "<?php echo $ajaxurl; ?>",
 
-            data: `decrypttxt=${iptext}&redcap_csrf_token=<?=$module->getCSRFToken()?>`,
+            data: `decrypttxt=${encodedText}&redcap_csrf_token=<?=$module->getCSRFToken()?>`,
             contentType: 'application/x-www-form-urlencoded',
             success: function(data){
                 // Insert the decrypted data into the table.
