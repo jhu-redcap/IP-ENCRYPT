@@ -106,7 +106,12 @@ class IPEncrypt extends \ExternalModules\AbstractExternalModule
         if(isset($encryption_key))
         {
             // Get the real IP address of the survey respondent.
-            $realIP = $_SERVER['REMOTE_ADDR'];
+            //$realIP = $_SERVER['REMOTE_ADDR']; deprecated
+            $realIP = \System::clientIpAddress(); //use REDCap's built-in function to get client IP address
+            if ($realIP === '') { // if for some reason the call fails, log the failure and exit the code
+		        $this->log('Error retrieving client IP address for record: ' . $record . ' in project: ' . $project_id);
+		        return;
+	        }
             // Define the ciphering method.
             $ciphering = "AES-256-CTR";
             // Set options for the openssl_encrypt function.
@@ -180,4 +185,5 @@ class IPEncrypt extends \ExternalModules\AbstractExternalModule
         </script>
 <?php
     }
+
 }
