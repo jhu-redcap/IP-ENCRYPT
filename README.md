@@ -32,3 +32,6 @@ When applied to a **TEXT** field, the encrypted IP is saved when the instrument 
 4. (Recommended) Also add:
     - `@READONLY`
     - `@HIDDEN-SURVEY`
+## Updates
+- v1.6.0 (2025-09-15): Updated to use the native REDCap function System::clientIpAddress() for better compatibility.
+- v1.5.0 (2025-05-27): Added encoding of the encrypted text. There was an issue where special characters were being replaced with spaces and causing the decryption to fail.
